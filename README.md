@@ -11,6 +11,7 @@ Groovy Cobol Transpiler, Runtime environment and API
 - Works great with hierarchical APIs, e.g. XML (provided)
 - Supports `copybooks` with 1, 2 or 3 records structure
 - Supports different data file encodings, including EBCDIC (IBM 037)
+- Supports configurable line-break sequences
 
 Usage:
 
