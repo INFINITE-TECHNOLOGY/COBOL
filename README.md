@@ -19,7 +19,7 @@ Usage:
         File copybookFile = new File("./test_files/copybook_multirecord.cbl")
         CobolCompiler cobolCompiler = new CobolCompiler()
         CobolRuntime cobolRuntime = cobolCompiler.compileCobol(copybookFile.getText(), FIXED)
-        File dataFile = new File("./test_files/PROD_SG_DCDDA_EMBS_20190905.TXT")
+        File dataFile = new File("./test_files/COBOLDATAFILE.TXT")
         File resultFile = new File("./test_files/multirecord.xml")
         cobolRuntime.run(
                 dataFile.length(),
