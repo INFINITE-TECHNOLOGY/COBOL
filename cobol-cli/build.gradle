@@ -16,13 +16,13 @@ plugins {
 apply plugin: 'com.jfrog.bintray'
 bootJar {
     baseName = 'cobol-cli'
-    version = '1.0.0'
+    version = '1.0.1'
 }
 
 ext['groovy.version'] = '2.5.4'
 sourceCompatibility = 1.8
 group = "io.i-t"
-version = "1.0.0"
+version = "1.0.1"
 description = "Groovy Cobol Transpiler, Runtime environment and API"
 
 repositories {
