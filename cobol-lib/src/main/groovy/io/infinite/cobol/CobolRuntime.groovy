@@ -109,12 +109,12 @@ class CobolRuntime {
             if (totalSize < (totalRead + totalSkipped)) {
                 throw new CobolExceptionRuntime("Over reading. Internal error (bug) - this should not happen. Investigation is required.")
             }
-            if ([CopybookStructureEnum.THREE_RECORD, CopybookStructureEnum.TWO_RECORD_H].contains(copybookStructure) && isFirstRecord) {
+            if ([CopybookStructureEnum.HEADER_DETAILS_TRAILER, CopybookStructureEnum.HEADER_DETAILS].contains(copybookStructure) && isFirstRecord) {
                 //DISABLED DEBUG:log.debug("Copybook structure with header. Header read - proceeding to read details.")
                 isFirstRecord = false
                 break
             }
-            if ([CopybookStructureEnum.THREE_RECORD, CopybookStructureEnum.TWO_RECORD_T].contains(copybookStructure) && !isLastRecord) {
+            if ([CopybookStructureEnum.HEADER_DETAILS_TRAILER, CopybookStructureEnum.DETAILS_TRAILER].contains(copybookStructure) && !isLastRecord) {
                 Long lastRecordSize = totalRead - initialTotalRead
                 //DISABLED DEBUG:log.debug("Last record/trailer check: totalSize=${totalSize}, ${totalRead} + ${lastRecordSize} = ${totalRead + lastRecordSize}")
                 if (totalSize <= totalRead + lastRecordSize) {

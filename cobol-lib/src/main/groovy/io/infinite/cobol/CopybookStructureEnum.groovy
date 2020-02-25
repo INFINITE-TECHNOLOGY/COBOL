@@ -2,10 +2,10 @@ package io.infinite.cobol
 
 enum CopybookStructureEnum {
 
-    ONE_RECORD("ONE_RECORD"),
-    TWO_RECORD_H("TWO_RECORD_H"),
-    TWO_RECORD_T("TWO_RECORD_T"),
-    THREE_RECORD("THREE_RECORD")
+    DETAILS("DETAILS"),
+    HEADER_DETAILS("HEADER_DETAILS"),
+    DETAILS_TRAILER("DETAILS_TRAILER"),
+    HEADER_DETAILS_TRAILER("HEADER_DETAILS_TRAILER")
 
     private final String copybookStructure
 

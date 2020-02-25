@@ -8,15 +8,18 @@ plugins {
     id "maven-publish"
     id "idea"
     id "jacoco"
+    id "org.springframework.boot" version "2.1.1.RELEASE"
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
-    id "enterprise.groovy.plugin" version "1.0.1"
+    id "enterprise.groovy.plugin" version "1.0.4"
 }
 
 apply plugin: 'com.jfrog.bintray'
+bootJar {
+    baseName = 'cobol-cli'
+    version = '1.0.0'
+}
 
 ext['groovy.version'] = '2.5.4'
-ext['springBootVersion'] = '2.1.1.RELEASE'
-
 sourceCompatibility = 1.8
 group = "io.i-t"
 version = "1.0.0"
@@ -35,20 +38,8 @@ sourceSets {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.5.4'
-    compile 'org.springframework.boot:spring-boot-starter-data-rest'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.0'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.1.7.RELEASE'
-    compile "io.i-t:bobbin:3.0.0"
-    compile 'io.i-t:blackbox:1.0.21'
-    compile 'io.i-t:ascend-lib:0.1.2'
-    compile 'io.i-t:cobol:3.0.0.1'
-    compile 'io.i-t:pigeon-lib:1.0.0'
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
-    compile files('libs/dataaccess.jar')
-    compile group: 'com.xlson.groovycsv', name: 'groovycsv', version: '1.3'
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8'
+    compile project(':cobol-lib')
+    compile 'info.picocli:picocli:4.2.0'
 }
 
 task sourceJar(type: Jar) {
@@ -94,11 +85,11 @@ bintray {
     pkg {
         userOrg = "infinite-technology"
         repo = "io.i-t"
-        name = "cobol-lib"
+        name = "cobol-cli"
         desc = "Groovy Cobol Transpiler, Runtime environment and API"
         issueTrackerUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL/issues"
         vcsUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL.git"
-        websiteUrl = "https://i-t.io/Cobol/"
+        websiteUrl = "https://i-t.io/Cobol"
         licenses = ["Apache-2.0"]
     }
 }
@@ -106,9 +97,4 @@ bintray {
 configurations {
     providedRuntime
     compile.exclude(group: 'ch.qos.logback')
-    compile.exclude(group: 'info.picocli')
-}
-
-dependencyManagement {
-    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
 }
