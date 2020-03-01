@@ -46,7 +46,7 @@ https://bintray.com/infinite-technology/io.i-t/download_file?file_path=io%2Fi-t%
 `java -jar cobol-cli-1.0.0.jar <copybookFile> <dataFile> <resultFile>`
 
 Example:
-`java -jar cobol-cli-1.0.0.jar java -jar cobol-cli-1.0.0.jar copybook.cbl datafile.bin datafile.bin.xml`
+`java -jar cobol-cli-1.0.0.jar copybook.cbl datafile.bin datafile.bin.xml`
 
 
 Help:
