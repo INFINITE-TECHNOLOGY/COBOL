@@ -1,0 +1,97 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .\n         
+					(programName 
+						(cobolWord IFTEST)) .\n       )) 
+			(procedureDivision Procedure Division .\n          
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(specialRegister LINE-COUNTER)))))) 
+														(relationalOperator EQUAL TO) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal 
+																			(figurativeConstant ZERO))))))))))) 
+									(ifThen 
+										(statement 
+											(displayStatement Display 
+												(displayOperand 
+													(literal "Hello world"))))) END-IF)) .\n       \n         ) 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(specialRegister LINE-COUNTER)))))) 
+														(relationalOperator =) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal 
+																			(figurativeConstant ZERO))))))))))) 
+									(ifThen 
+										(statement 
+											(displayStatement Display 
+												(displayOperand 
+													(literal "Hello world"))))) END-IF)) .\n       \n         ) 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(specialRegister LINE-COUNTER)))))) 
+														(relationalOperator =) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal 
+																			(figurativeConstant ZERO)))))))))) 
+										(andOrCondition OR 
+											(abbreviation 
+												(arithmeticExpression 
+													(multDivs 
+														(powers 
+															(basis 
+																(literal 
+																	(numericLiteral 
+																		(integerLiteral 1)))))))))) 
+									(ifThen 
+										(statement 
+											(displayStatement Display 
+												(displayOperand 
+													(literal "Hello world"))))) END-IF)) .)))))) <EOF>)

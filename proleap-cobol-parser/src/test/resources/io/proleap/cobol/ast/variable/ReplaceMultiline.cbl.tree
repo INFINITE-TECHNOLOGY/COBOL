@@ -1,0 +1,57 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .\n         
+					(programName 
+						(cobolWord HELLOWORLD)) .\n       )) 
+			(procedureDivision Procedure Division .\n\n        
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(displayStatement Display 
+									(displayOperand 
+										(literal "Hello world")))) .\n       ) 
+						(sentence 
+							(statement 
+								(moveStatement MOVE 
+									(moveToStatement 
+										(moveToSendingArea 
+											(literal "*")) TO 
+										(identifier 
+											(qualifiedDataName 
+												(qualifiedDataNameFormat1 
+													(dataName 
+														(cobolWord WRK-XN-00001)))))))) .\n       \n       ) 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(qualifiedDataName 
+																				(qualifiedDataNameFormat1 
+																					(dataName 
+																						(cobolWord WRK-XN-00001))))))))) 
+														(relationalOperator =) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal "*")))))))))) 
+									(ifThen 
+										(statement 
+											(displayStatement Display 
+												(displayOperand 
+													(literal "Hello world"))))))) .\n\n        ) 
+						(sentence 
+							(statement 
+								(stopStatement STOP RUN)) .)))))) <EOF>)

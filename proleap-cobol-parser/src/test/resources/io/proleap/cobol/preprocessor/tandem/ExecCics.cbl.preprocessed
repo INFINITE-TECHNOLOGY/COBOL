@@ -1,0 +1,32 @@
+ IDENTIFICATION DIVISION.
+ PROGRAM-ID. ExecCics.
+ 
+ DATA DIVISION.
+ WORKING-STORAGE SECTION.
+ 
+   01 ws-length PICTURE 9(4).
+ 
+   01 ws-input.
+     05 ws-message-in PICTURE x(100).
+ 
+   01 ws-output.
+     05 ws-message-out PICTURE x(100).
+ 
+ 
+ PROCEDURE DIVISION.
+ 
+   MOVE 50 TO ws-length.
+ 
+*>EXECCICS EXEC CICS RECEIVE
+*>EXECCICS INTO(ws-input)
+*>EXECCICS LENGTH(ws-length)
+*>EXECCICS END-EXEC }.
+ 
+   MOVE ws-message-in TO ws-message-out.
+ 
+*>EXECCICS EXEC CICS SEND
+*>EXECCICS FROM(ws-output)
+*>EXECCICS LENGTH(ws-length)
+*>EXECCICS END-EXEC }.
+ 
+*>EXECCICS EXEC CICS RETURN END-EXEC }.

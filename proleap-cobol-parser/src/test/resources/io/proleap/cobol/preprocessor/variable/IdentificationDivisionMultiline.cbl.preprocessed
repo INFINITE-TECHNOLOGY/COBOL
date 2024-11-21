@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.
+          CONFIGSECTION.
+       AUTHOR.
+      *>CE     SOMEAUTH.
+      *>CE     SOMEAUTH2.
+       INSTALLATION.
+      *>CE     SOMEINSTALL.
+      *>CE     SOMEINSTALL2.
+       DATE-COMPILED.
+      *>CE     SOMECOMPILED.
+      *>CE     SOMECOMPILED2.
+       DATE-WRITTEN.
+      *>CE     SOMEWRITTEN.
+      *>CE     SOMEWRITTEN2.
+       SECURITY.
+      *>CE     SOMESEC.
+      *>CE     SOMESEC2.
+       REMARKS.
+      *>CE     SOMEREM.
+      *>CE     SOMEREM2.

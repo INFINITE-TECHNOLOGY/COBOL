@@ -1,0 +1,80 @@
+/*
+File
+https://github.com/virtualdogbert/GroovyConfigWriter/blob/master/build.gradle
+has been used as basis for this file.
+ */
+plugins {
+    id "java"
+    id "maven-publish"
+    id "idea"
+    id 'antlr'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+group = "io.i-t"
+version = "3.0.0.1"
+description = "Clone of https://github.com/uwol/proleap-cobol-parser"
+
+sourceSets {
+    main.java.srcDirs = ["src/main/java"]
+    test.java.srcDirs = ["src/test/java"]
+}
+
+dependencies {
+    compile 'commons-io:commons-io:2.5'
+    compile 'commons-lang:commons-lang:2.6'
+    antlr 'org.antlr:antlr4:4.7.2'
+    //compile 'org.antlr:antlr4-runtime:4.7.2'
+    implementation project(path: ':BOBBIN')
+    testCompile 'junit:junit:4.12'
+    compile 'org.codehaus.groovy:groovy-all:2.5.4'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier "sources"
+}
+
+ext {
+    theTitle = "Clone of https://github.com/uwol/proleap-cobol-parser"
+    titleForDocumentation = archivesBaseName + " " + version
+    packageTitle = group
+    description = "Clone of https://github.com/uwol/proleap-cobol-parser"
+}
+
+publishing {
+    publications {
+        groovyMaven(MavenPublication) {
+            from components.java
+            artifact(sourceJar) {
+                classifier "sources"
+            }
+        }
+    }
+}
+
+task jarSrc(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives(jarSrc)
+}
+
+
+generateGrammarSource {
+    maxHeapSize = "2048m"
+    arguments += ["-visitor", "-listener"]
+}
+
+
+
+configurations {
+    providedRuntime
+    compile.exclude(group: 'ch.qos.logback')
+}

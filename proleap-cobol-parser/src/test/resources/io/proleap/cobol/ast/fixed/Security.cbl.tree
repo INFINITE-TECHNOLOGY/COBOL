@@ -1,0 +1,32 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision IDENTIFICATION DIVISION .\n        
+				(programIdParagraph PROGRAM-ID .\n            
+					(programName 
+						(cobolWord SECURITYTEST)) .\n       ) 
+				(identificationDivisionBody 
+					(securityParagraph SECURITY .\n       
+						(commentEntry *>CE     NONE. *>CE  *>CE     SOME QUOTE"S *>CE )))) 
+			(dataDivision DATA DIVISION .\n        
+				(dataDivisionSection 
+					(workingStorageSection WORKING-STORAGE SECTION .\n        
+						(dataDescriptionEntry 
+							(dataDescriptionEntryFormat1 01 
+								(dataName 
+									(cobolWord LEVEL1)) .\n           )) 
+						(dataDescriptionEntry 
+							(dataDescriptionEntryFormat1 02 
+								(dataName 
+									(cobolWord LEVEL2)) 
+								(dataPictureClause PIC 
+									(pictureString 
+										(pictureChars X) 
+										(pictureChars () 
+										(pictureChars 
+											(integerLiteral 52)) 
+										(pictureChars )))) 
+								(dataValueClause VALUE IS 
+									(dataValueInterval 
+										(dataValueIntervalFrom 
+											(literal "COPY, TEST.")))) .))))))) <EOF>)

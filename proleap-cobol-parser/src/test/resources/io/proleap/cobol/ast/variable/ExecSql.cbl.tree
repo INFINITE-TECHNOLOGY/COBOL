@@ -1,0 +1,38 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .  
+					(programName 
+						(cobolWord ExecSql)) .\n       \n       )) 
+			(dataDivision Data Division .\n        
+				(dataDivisionSection 
+					(workingStorageSection Working-Storage Section .\n       \n       
+						(dataDescriptionEntry 
+							(dataDescriptionEntryExecSql *>EXECSQL EXEC SQL BEGIN DECLARE SECTION END-EXEC } .\n       \n       )) 
+						(dataDescriptionEntry 
+							(dataDescriptionEntryFormat1 01 
+								(dataName 
+									(cobolWord userid)) 
+								(dataPictureClause pic 
+									(pictureString 
+										(pictureChars x) 
+										(pictureChars () 
+										(pictureChars 
+											(integerLiteral 8)) 
+										(pictureChars )))) .\n       \n      )) 
+						(dataDescriptionEntry 
+							(dataDescriptionEntryExecSql *>EXECSQL EXEC SQL END DECLARE SECTION END-EXEC } .\n       \n       ))))) 
+			(procedureDivision Procedure Division .\n       
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(execSqlStatement *>EXECSQL EXEC SQL CONNECT TO demo END-EXEC })) 
+							(statement 
+								(displayStatement Display 
+									(displayOperand 
+										(literal "Hello world")))) .\n        ) 
+						(sentence 
+							(statement 
+								(stopStatement STOP RUN)) .)))))) <EOF>)

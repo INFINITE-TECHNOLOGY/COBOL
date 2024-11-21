@@ -1,0 +1,8 @@
+ IDENTIFICATION DIVISION.
+ PROGRAM-ID. IFSTMT.
+ PROCEDURE DIVISION.
+    IF 1 > 2
+       DISPLAY 'thentext'
+    ELSE
+       DISPLAY 'elsetext'
+    END-IF.

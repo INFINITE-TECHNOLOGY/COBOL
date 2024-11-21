@@ -10,10 +10,10 @@ plugins {
     id "jacoco"
     id "org.springframework.boot" version "2.1.1.RELEASE"
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
-    id "enterprise.groovy.plugin" version "1.0.4"
+    //id "enterprise.groovy.plugin" version "1.0.4"
 }
 
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.jfrog.bintray'
 bootJar {
     baseName = 'cobol-cli'
     version = '1.0.1'
@@ -39,6 +39,10 @@ sourceSets {
 
 dependencies {
     compile project(':cobol-lib')
+    implementation project(path: ':BLACKBOX')
+    implementation project(path: ':SUPPLIES')
+    implementation project(path: ':BOBBIN')
+    implementation project(path: ':proleap-cobol-parser')
     compile 'info.picocli:picocli:4.2.0'
 }
 
@@ -74,25 +78,7 @@ artifacts {
     archives(jarSrc)
 }
 
-bintray {
-    user = System.getenv("bintrayuser")
-    key = System.getenv("bintraypassword")
-    System.out.println(user)
-    System.out.println(key)
-    publications = ["groovyMaven"]
-    def projectName = project.name
-    def projectDescription = project.description
-    pkg {
-        userOrg = "infinite-technology"
-        repo = "io.i-t"
-        name = "cobol-cli"
-        desc = "Groovy Cobol Transpiler, Runtime environment and API"
-        issueTrackerUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL/issues"
-        vcsUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL.git"
-        websiteUrl = "https://i-t.io/Cobol"
-        licenses = ["Apache-2.0"]
-    }
-}
+
 
 configurations {
     providedRuntime

@@ -8,11 +8,14 @@ plugins {
     id "maven-publish"
     id "idea"
     id "jacoco"
-    id "enterprise.groovy.plugin" version "1.0.1"
+    //id "enterprise.groovy.plugin" version "1.0.1"
 }
 
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.jfrog.bintray'
 
+repositories {
+    mavenCentral()
+}
 ext['groovy.version'] = '2.5.4'
 
 sourceCompatibility = 1.8
@@ -21,10 +24,6 @@ version = "1.0.1"
 description = "Groovy Cobol Transpiler, Runtime environment and API"
 
 repositories {
-    jcenter()
-    maven {
-        url  "https://dl.bintray.com/infinite-technology/io.i-t"
-    }
 }
 
 sourceSets {
@@ -34,9 +33,10 @@ sourceSets {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.5.4'
-    compile "io.i-t:bobbin:3.0.0"
-    compile 'io.i-t:blackbox:1.0.21'
-    compile 'io.i-t:cobol:3.0.0.1'
+    implementation project(path: ':BOBBIN')
+    implementation project(path: ':BLACKBOX')
+    implementation project(path: ':SUPPLIES')
+    implementation project(path: ':proleap-cobol-parser')
     compile files('libs/dataaccess.jar')
 }
 
@@ -72,25 +72,6 @@ artifacts {
     archives(jarSrc)
 }
 
-bintray {
-    user = System.getenv("bintrayuser")
-    key = System.getenv("bintraypassword")
-    System.out.println(user)
-    System.out.println(key)
-    publications = ["groovyMaven"]
-    def projectName = project.name
-    def projectDescription = project.description
-    pkg {
-        userOrg = "infinite-technology"
-        repo = "io.i-t"
-        name = "cobol-lib"
-        desc = "Groovy Cobol Transpiler, Runtime environment and API"
-        issueTrackerUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL/issues"
-        vcsUrl = "https://github.com/INFINITE-TECHNOLOGY/COBOL.git"
-        websiteUrl = "https://i-t.io/Cobol/"
-        licenses = ["Apache-2.0"]
-    }
-}
 
 configurations {
     providedRuntime

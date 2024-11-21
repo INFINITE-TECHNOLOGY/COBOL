@@ -3,10 +3,10 @@ package io.infinite.cobol
 import com.ibm.dataaccess.DecimalData
 import groovy.util.logging.Slf4j
 import io.infinite.blackbox.BlackBox
-import io.infinite.carburetor.CarburetorLevel
+import io.infinite.blackbox.BlackBoxLevel
 import io.infinite.supplies.ast.other.ASTUtils
 
-@BlackBox(level = CarburetorLevel.ERROR)
+@BlackBox(level = BlackBoxLevel.ERROR)
 @Slf4j
 class CobolRuntime {
 

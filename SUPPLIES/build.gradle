@@ -1,0 +1,85 @@
+/*
+File
+https://github.com/virtualdogbert/GroovyConfigWriter/blob/master/build.gradle
+has been used as basis for this file.
+ */
+
+plugins {
+    id "groovy"
+    id "maven-publish"
+    id "idea"
+    id "jacoco"
+}
+
+repositories {
+    mavenCentral()
+}
+sourceCompatibility = 1.8
+group = "io.i-t"
+version = "2.0.0"
+description = "Misc commons/utilities/tools"
+
+ext.groovyVersion = '2.5.4'
+
+
+
+sourceSets {
+    main.groovy.srcDirs = ["src/main/groovy"]
+    main.java.srcDirs = ["src/main/java"]
+    test.groovy.srcDirs = ["src/test/groovy"]
+}
+
+dependencies {
+    compileOnly "org.codehaus.groovy:groovy-all:2.5.4"
+    testCompile "org.codehaus.groovy:groovy-all:2.5.4"
+    testCompile "org.testng:testng:6.14.3"
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier "sources"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+ext {
+    theTitle = "Misc commons/utilities/tools"
+    titleForDocumentation = archivesBaseName + " " + version
+    packageTitle = group
+    description = "Misc commons/utilities/tools"
+}
+
+
+artifacts {
+    archives(sourceJar)
+}
+
+
+test {
+    useTestNG()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+check.dependsOn jacocoTestReport
+//bintrayUpload.dependsOn javadocJar
+//Remote debug config, useful for debugging AST transforms.
+//compileGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
+//compileTestGroovy.groovyOptions.forkOptions.jvmArgs = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
+
+configurations {
+    providedRuntime
+    compile.exclude(group: 'junit')
+    compile.exclude(group: 'org.junit.platform')
+}

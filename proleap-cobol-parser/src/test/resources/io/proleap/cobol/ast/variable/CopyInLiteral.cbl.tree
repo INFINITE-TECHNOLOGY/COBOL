@@ -1,0 +1,39 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .\n         
+					(programName 
+						(cobolWord HELLOWORLD)) .\n       )) 
+			(dataDivision Data Division .\n        
+				(dataDivisionSection 
+					(workingStorageSection Working-Storage Section .\n        
+						(dataDescriptionEntry 
+							(dataDescriptionEntryFormat1 02 FILLER 
+								(dataPictureClause PICTURE 
+									(pictureString 
+										(pictureChars X) 
+										(pictureChars () 
+										(pictureChars 
+											(integerLiteral 14)) 
+										(pictureChars )))) 
+								(dataValueClause VALUE IS 
+									(dataValueInterval 
+										(dataValueIntervalFrom 
+											(literal "AB COPY, TEST.")))) .\n       ))))) 
+			(procedureDivision Procedure Division .\n         
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(displayStatement Display 
+									(displayOperand 
+										(literal "COPY ,")))) .\n        ) 
+						(sentence 
+							(statement 
+								(displayStatement Display 
+									(displayOperand 
+										(literal "COPY,")))) .\n        ) 
+						(sentence 
+							(statement 
+								(stopStatement STOP RUN)) .)))))) <EOF>)

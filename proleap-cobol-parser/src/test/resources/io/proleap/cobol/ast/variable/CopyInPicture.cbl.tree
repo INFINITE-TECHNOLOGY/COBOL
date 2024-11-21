@@ -1,0 +1,21 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .\n         
+					(programName 
+						(cobolWord HELLOWORLD)) .\n       )) 
+			(dataDivision Data Division .\n        
+				(dataDivisionSection 
+					(workingStorageSection Working-Storage Section .\n        
+						(dataDescriptionEntry 
+							(dataDescriptionEntryFormat1 01 
+								(dataName 
+									(cobolWord VAR)) 
+								(dataPictureClause PICTURE 
+									(pictureString 
+										(pictureChars X) 
+										(pictureChars () 
+										(pictureChars 
+											(integerLiteral 10)) 
+										(pictureChars )))) .\n))))))) <EOF>)

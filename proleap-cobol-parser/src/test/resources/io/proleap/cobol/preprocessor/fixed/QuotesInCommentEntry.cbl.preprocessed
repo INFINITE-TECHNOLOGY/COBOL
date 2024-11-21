@@ -1,0 +1,8 @@
+       Identification Division.
+       Program-ID.
+           HELLOWORLD.
+       Author.
+      *>CE     Test " Author '".
+       Procedure Division.
+           Display "Hello world".
+           STOP RUN.

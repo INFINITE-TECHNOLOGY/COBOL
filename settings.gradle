@@ -17,5 +17,9 @@ include 'services:webservice'
 
 rootProject.name = 'cobol'
 
+include 'SUPPLIES'
+include 'BOBBIN'
+include 'BLACKBOX'
+include 'proleap-cobol-parser'
 include 'cobol-lib'
 include 'cobol-cli'

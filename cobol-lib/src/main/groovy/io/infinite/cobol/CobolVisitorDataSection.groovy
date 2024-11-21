@@ -3,7 +3,7 @@ package io.infinite.cobol
 import groovy.transform.CompileDynamic
 import groovy.util.logging.Slf4j
 import io.infinite.blackbox.BlackBox
-import io.infinite.carburetor.CarburetorLevel
+import io.infinite.blackbox.BlackBoxLevel
 import io.proleap.cobol.CobolParser
 import io.proleap.cobol.asg.metamodel.Literal
 import io.proleap.cobol.asg.metamodel.Program
@@ -16,7 +16,7 @@ import org.antlr.v4.runtime.tree.ParseTree
 import org.apache.commons.lang3.StringUtils
 
 @Slf4j
-@BlackBox(level = CarburetorLevel.ERROR)
+@BlackBox(level = BlackBoxLevel.ERROR)
 class CobolVisitorDataSection extends CobolVisitorGeneral {
 
     Program program
@@ -35,7 +35,7 @@ class CobolVisitorDataSection extends CobolVisitorGeneral {
         this.program = program
     }
 
-    @BlackBox(level = CarburetorLevel.NONE)
+    @BlackBox(level = BlackBoxLevel.NONE)
     private CobolVisitorDataSection() {
     }
 

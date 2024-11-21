@@ -1,0 +1,60 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n          
+				(programIdParagraph Program-ID .\n            
+					(programName 
+						(cobolWord IFELSETEST)) .\n       )) 
+			(procedureDivision Procedure Division .\n       \n        
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(qualifiedDataName 
+																				(qualifiedDataNameFormat1 
+																					(dataName 
+																						(cobolWord Obj-Name))))))))) 
+														(relationalOperator NOT =) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal 
+																			(figurativeConstant SPACE))))))))))) 
+									(ifThen 
+										(statement 
+											(setStatement SET 
+												(setToStatement 
+													(setTo 
+														(identifier 
+															(specialRegister ADDRESS OF 
+																(identifier 
+																	(qualifiedDataName 
+																		(qualifiedDataNameFormat1 
+																			(dataName 
+																				(cobolWord PointerA)))))))) TO 
+													(setToValue 
+														(identifier 
+															(qualifiedDataName 
+																(qualifiedDataNameFormat1 
+																	(dataName 
+																		(cobolWord PointerB)))))))))) 
+									(ifElse ELSE 
+										(statement 
+											(initializeStatement INITIALIZE 
+												(identifier 
+													(qualifiedDataName 
+														(qualifiedDataNameFormat1 
+															(dataName 
+																(cobolWord Test1)))))))) END-IF)) .)))))) <EOF>)

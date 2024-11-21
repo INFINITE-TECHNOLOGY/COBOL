@@ -1,0 +1,4 @@
+language: groovy
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - ./gradlew artifactoryPublish -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$TRAVIS_BUILD_NUMBER

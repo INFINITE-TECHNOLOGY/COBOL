@@ -1,0 +1,73 @@
+/*
+File
+https://github.com/virtualdogbert/GroovyConfigWriter/blob/master/build.gradle
+has been used as basis for this file.
+ */
+plugins {
+    id "groovy"
+    id "maven-publish"
+    id "idea"
+    id "jacoco"
+}
+
+sourceCompatibility = 1.8
+group = "io.i-t"
+version = "2.2.0"
+description = "Groovy Logging AST transformation"
+
+
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+    main.groovy.srcDirs = ["src/main/groovy", "generated"]
+    main.java.srcDirs = ["src/main/java"]
+    test.groovy.srcDirs = ["src/test/groovy"]
+}
+
+dependencies {
+    compileOnly 'org.codehaus.groovy:groovy-all:2.5.4'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    testCompile 'org.codehaus.groovy:groovy-all:2.5.4'
+    implementation project(path: ':BOBBIN')
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier "sources"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+ext {
+    theTitle = "Groovy Annotation injecting logging code"
+    titleForDocumentation = archivesBaseName + " " + version
+    packageTitle = group
+    description = "Groovy Annotation injecting logging code"
+}
+
+artifacts {
+    archives(sourceJar)
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+
+configurations {
+    providedRuntime
+    compile.exclude(group: 'junit')
+    compile.exclude(group: 'org.junit.platform')
+}

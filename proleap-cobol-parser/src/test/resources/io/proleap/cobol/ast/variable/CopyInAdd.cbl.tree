@@ -1,0 +1,56 @@
+(startRule 
+	(compilationUnit 
+		(programUnit 
+			(identificationDivision Identification Division .\n        
+				(programIdParagraph Program-ID .\n         
+					(programName 
+						(cobolWord HELLOWORLD)) .\n       )) 
+			(procedureDivision Procedure Division .\n        
+				(procedureDivisionBody 
+					(paragraphs 
+						(sentence 
+							(statement 
+								(addStatement ADD 
+									(addToStatement 
+										(addFrom 
+											(literal 
+												(numericLiteral 
+													(integerLiteral 42)))) TO 
+										(addTo 
+											(identifier 
+												(qualifiedDataName 
+													(qualifiedDataNameFormat1 
+														(dataName 
+															(cobolWord Var1))))))))) .\n       ) 
+						(sentence 
+							(statement 
+								(ifStatement IF 
+									(condition 
+										(combinableCondition 
+											(simpleCondition 
+												(relationCondition 
+													(relationArithmeticComparison 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(identifier 
+																			(qualifiedDataName 
+																				(qualifiedDataNameFormat1 
+																					(dataName 
+																						(cobolWord Var1))))))))) 
+														(relationalOperator EQUAL TO) 
+														(arithmeticExpression 
+															(multDivs 
+																(powers 
+																	(basis 
+																		(literal 
+																			(numericLiteral 
+																				(integerLiteral 12345)))))))))))) 
+									(ifThen 
+										(statement 
+											(goToStatement GO TO 
+												(goToStatementSimple 
+													(procedureName 
+														(paragraphName 
+															(cobolWord JMP-1))))))))) .)))))) <EOF>)
